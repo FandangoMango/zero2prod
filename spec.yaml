@@ -35,6 +35,7 @@ services:
         value: ${newsletter.DATABASE}
 
 databases:
+
   - engine: PG
     name: newsletter
     num_nodes: 1
