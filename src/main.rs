@@ -20,8 +20,7 @@ async fn main() -> std::io::Result<()> {
         get_configuration().expect("Failed to read configuration");
     let connection_pool = PgPoolOptions::new()
         .connect_timeout(std::time::Duration::from_secs(2))
-        .connect_lazy(&configuration.database.connection_string().expose_secret())
-        .expect("failed to connect to connection pool");   
+        .connect_lazy_with(configuration.database.with_db());
     let address = format!(
         "{}:{}", 
         configuration.application.host,
