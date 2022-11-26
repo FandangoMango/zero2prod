@@ -31,11 +31,18 @@ sqlx = {version = "0.5.13", features = ["offline", "runtime-actix-rustls", "macr
 serde-aux = "3"
 unicode-segmentation = "1"
 validator = "0.14"
-reqwest = { version = "0.11", default-features = false, features = ["json", "rustls-tls"] }
+reqwest = { version = "0.11", default-features = false, features = ["json", "rustls-tls", "cookies"] }
 wiremock = "0.5"
 rand = { version = "0.8", features=["std_rng"] }
 thiserror = "1"
 anyhow = "1"
+base64 = "0.13"
+argon2 = { version = "0.3", features = ["std"] }
+urlencoding = "2"
+htmlescape = "0.3"
+hmac = { version = "0.12", features = ["std"] }
+sha2 = "0.10"
+hex = "0.4"
 
 [dev-dependencies]
 claim = "0.5"

@@ -1,0 +1,26 @@
+[33m4a9df82[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{0}: reset: moving to HEAD@{7}
+[33m4a9df82[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{1}: reset: moving to HEAD@{7}
+[33m1afa343[m HEAD@{2}: reset: moving to HEAD
+[33m1afa343[m HEAD@{3}: reset: moving to HEAD@{7}
+[33m4a9df82[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{4}: reset: moving to HEAD@{4}
+[33m4a9df82[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{5}: reset: moving to HEAD@{2}
+[33m4a9df82[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{6}: reset: moving to HEAD@{1}
+[33m4a9df82[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{7}: reset: moving to HEAD@{0}
+[33m4a9df82[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{8}: reset: moving to HEAD
+[33m4a9df82[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{9}: commit: improved error handling
+[33me13b996[m HEAD@{10}: commit: even more revolutionary changes
+[33m1afa343[m HEAD@{11}: commit: Added lots of new things :)
+[33mc0e2120[m HEAD@{12}: commit: maybet this will work
+[33mcb348b4[m HEAD@{13}: commit: maybe this works now
+[33mc865c6a[m HEAD@{14}: commit: fixed spelling error in code
+[33maf844fe[m HEAD@{15}: commit: updated security and database structure
+[33m20c13ab[m HEAD@{16}: commit: fixed production => local mistake ruining your week
+[33m220b795[m HEAD@{17}: commit: added necessary files to use on DO.
+[33m913c022[m HEAD@{18}: commit: remember to push to github next time dummy#
+[33m437c30f[m HEAD@{19}: commit: fixed offline metadata
+[33md8fabd5[m HEAD@{20}: commit: create docker image with offline sqlx feature
+[33m876b44d[m HEAD@{21}: commit: strenghtened security and seperated functions#
+[33mef20faa[m HEAD@{22}: pull: Fast-forward
+[33me58b607[m HEAD@{23}: commit: tried out commit
+[33m01cf204[m HEAD@{24}: Branch: renamed refs/heads/master to refs/heads/main
+[33m01cf204[m HEAD@{26}: commit (initial): Project Skeleton

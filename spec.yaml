@@ -36,7 +36,10 @@ services:
       - key: APP_APPLICATION__BASE_URL
         scope: RUN_TIME
         value: ${APP_URL}
-
+      - key: APP_APPLICATION__HMAC_SECRET
+        scope: RUN_TIME
+        # If it doesn't work change this to something else
+        value: "super-long-and-secret-random-key-needed-to-verify-message-integrity"
 databases:
 
   - engine: PG

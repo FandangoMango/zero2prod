@@ -1,23 +1,26 @@
-use actix_web::{web, HttpResponse};
-use sqlx::PgPool;
-use uuid::Uuid;
 use crate::routes::subscriptions;
 use actix_web::http::StatusCode;
 use actix_web::ResponseError;
+use actix_web::{web, HttpResponse};
 use anyhow::Context;
+use sqlx::PgPool;
+use uuid::Uuid;
 #[derive(serde::Deserialize)]
 pub struct Parameters {
     subscription_token: String,
 }
 #[tracing::instrument(name = "Confirming a pending subscriber", skip(parameters, pool))]
-pub async fn confirm(parameters: web::Query<Parameters>, pool: web::Data<PgPool>) -> Result<HttpResponse, ConfirmError> {
+pub async fn confirm(
+    parameters: web::Query<Parameters>,
+    pool: web::Data<PgPool>,
+) -> Result<HttpResponse, ConfirmError> {
     let subscriber_id = get_subscriber_id_from_token(&pool, &parameters.subscription_token)
-    .await
-    .context("Failed to retrieve the subscriber id associated with the provided token")?
-    .ok_or(ConfirmError::UnknownToken)?;
+        .await
+        .context("Failed to retrieve the subscriber id associated with the provided token")?
+        .ok_or(ConfirmError::UnknownToken)?;
     confirm_subscriber(&pool, subscriber_id)
-    .await
-    .context("Failed to update the subscriber status to 'confirmed'.")?;
+        .await
+        .context("Failed to update the subscriber status to 'confirmed'.")?;
     Ok(HttpResponse::Ok().finish())
 }
 #[derive(thiserror::Error)]

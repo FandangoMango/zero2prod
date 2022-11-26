@@ -16,8 +16,6 @@ async fn subscribe_sends_a_confirmation_email_with_a_link() {
     let email_request = &app.email_server.received_requests().await.unwrap()[0];
     let confirmation_links = app.get_confirmation_links(&email_request);
     assert_eq!(confirmation_links.html, confirmation_links.plain_text);
-    let body: serde_json::Value = serde_json::from_slice(&email_request.body).unwrap();
-    assert_eq!(confirmation_links.html, confirmation_links.plain_text);
 }
 
 #[actix_web::test]

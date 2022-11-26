@@ -11,15 +11,21 @@ impl AsRef<str> for SubscriberName {
 
 impl SubscriberName {
     pub fn parse(s: String) -> Result<SubscriberName, String> {
-        let is_empty_or_whitespace = s.trim().is_empty();
-        let is_too_long = s.graphemes(true).count() > 256;
-        let forbidden_characters = ['/', '(', ')', '"', '<', '>', '\\', '{', '}'];
-        let contains_forbidden_characters = s.chars().any(|g| forbidden_characters.contains(&g));
-        if is_empty_or_whitespace || is_too_long || contains_forbidden_characters {
-            Err(format!("{} is not a valid subscriber name.", s))
-        } else {
-            Ok(Self(s))
+        // is_empty_or_whitespace
+        if s.trim().is_empty() {
+            return Err(format!("{} is empty or whitespace.", s));
         }
+        // is_too_long
+        if s.graphemes(true).count() > 256 {
+            return Err(format!("{} is too long.", s));
+        }
+        let forbidden_characters = ['/', '(', ')', '"', '<', '>', '\\', '{', '}'];
+        // contains_forbidden_characters
+        if s.chars().any(|g| forbidden_characters.contains(&g)) {
+            return Err(format!(
+            "{} contains forbidden characters\nRemove all of the following:\n/ ( ) \" < > \\\\ {{ }}", s));
+        }
+        Ok(Self(s))
     }
 }
 
