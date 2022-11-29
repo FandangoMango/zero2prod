@@ -3,7 +3,7 @@ use zero2prod::startup::Application;
 use zero2prod::telemetry::{get_subscriber, init_subscriber};
 
 #[actix_web::main]
-async fn main() -> std::io::Result<()> {
+async fn main() -> anyhow::Result<()> {
     let name = "zero2prod".to_string();
     let env_filter = "info".to_string();
     let sink = std::io::stdout;
