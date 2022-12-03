@@ -1,7 +1,7 @@
 use crate::authentication::{validate_credentials, AuthError, Credentials};
 use crate::domain::SubscriberEmail;
 use crate::email_client::EmailClient;
-use crate::routes::error_chain_fmt;
+use crate::utils::error_chain_fmt;
 use actix_web::http::header::{HeaderMap, HeaderValue};
 use actix_web::http::StatusCode;
 use actix_web::web;
@@ -99,15 +99,15 @@ fn basic_authentication(headers: &HeaderMap) -> Result<Credentials, anyhow::Erro
     let decoded_bytes = base64::decode_config(base64encoded_segment, base64::STANDARD)
         .context("Failed to base64-decode 'Basic' credentials.")?;
     let decoded_credentials = String::from_utf8(decoded_bytes)
-        .context("The decoded credential string is not valud UTF8")?;
+        .context("The decoded credential string is not valid UTF8")?;
     let mut credentials = decoded_credentials.splitn(2, ':');
     let username = credentials
         .next()
-        .ok_or_else(|| anyhow::anyhow!("A username must be provided in 'Basic' auth."))?
+        .ok_or_else(|| anyhow::anyhow!("A username must be provided in 'Basic' authentication."))?
         .to_string();
     let password = credentials
         .next()
-        .ok_or_else(|| anyhow::anyhow!("A password must be proided in 'Baisc' auth."))?
+        .ok_or_else(|| anyhow::anyhow!("A password must be provided in 'Basic' authentication."))?
         .to_string();
     Ok(Credentials {
         username,

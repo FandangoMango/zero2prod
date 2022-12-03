@@ -1,4 +1,4 @@
-use crate::routes::subscriptions;
+use crate::utils::error_chain_fmt;
 use actix_web::http::StatusCode;
 use actix_web::ResponseError;
 use actix_web::{web, HttpResponse};
@@ -32,7 +32,7 @@ pub enum ConfirmError {
 }
 impl std::fmt::Debug for ConfirmError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        subscriptions::error_chain_fmt(self, f)
+        error_chain_fmt(self, f)
     }
 }
 impl ResponseError for ConfirmError {
